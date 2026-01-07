@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "cobblemonpulse",
+  "version": "${version}",
+  "name": "CobblemonPulse",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/cobblemonpulse/icon.png",
+  "environment": "server",
+  "entrypoints": {
+    "main": [
+      "com.ts.cobblemonpulse.Cobblemonpulse"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
