@@ -6,7 +6,7 @@ import java.util.List;
  * Config class holds all configurable message data for CobblemonPulse.
  * <p>
  * It organizes messages by event types (spawn, catch, defeat) and by
- * Pokémon rarity context (normal, shiny, legendary, mythical).
+ * Pokémon rarity context (normal, shiny, legendary, mythical, ultrabeast).
  */
 public class Config {
 
@@ -47,7 +47,7 @@ public class Config {
 
     /**
      * Message groups for different events.
-     * Each group holds messages for normal/shiny/legendary/mythical Pokémon.
+     * Each group holds messages for normal/shiny/legendary/mythical/ultrabeast Pokémon.
      */
     public static MessageGroup SPAWN;
     public static MessageGroup CATCH;
@@ -60,16 +60,18 @@ public class Config {
     /**
      * Groups multiple MessageSections by Pokémon rarity.
      *
-     * @param normal    Standard Pokémon messages
-     * @param shiny     Shiny Pokémon messages
-     * @param legendary Legendary Pokémon messages
-     * @param mythical  Mythical Pokémon messages
+     * @param normal      Standard Pokémon messages
+     * @param shiny       Shiny Pokémon messages
+     * @param legendary   Legendary Pokémon messages
+     * @param mythical    Mythical Pokémon messages
+     * @param ultrabeast  UltraBeast Pokémon messages
      */
     public record MessageGroup(
             MessageSection normal,
             MessageSection shiny,
             MessageSection legendary,
-            MessageSection mythical
+            MessageSection mythical,
+            MessageSection ultrabeast
     ) {
     }
 
@@ -79,10 +81,10 @@ public class Config {
 
     /**
      * Retrieves the appropriate MessageSection based on the event type
-     * and Pokémon context (shiny, legendary, mythical).
+     * and Pokémon context (shiny, legendary, mythical, ultrabeast).
      * <p>
      * Priority order when selecting a message section:
-     * Mythical > Legendary > Shiny > Normal
+     * Mythical > UltraBeast > Legendary > Shiny > Normal
      *
      * @param type The type of event (SPAWN, CAPTURED, DEFEAT)
      * @param ctx  Context object containing information about the Pokémon's rarity
@@ -104,11 +106,14 @@ public class Config {
         if (ctx.mythical && group.mythical() != null) {
             return group.mythical(); // Mythical has the highest priority
         }
+        if (ctx.ultrabeast && group.ultrabeast() != null) {
+            return group.ultrabeast(); // UltraBeast is checked
+        }
         if (ctx.legendary && group.legendary() != null) {
             return group.legendary(); // Legendary comes next
         }
         if (ctx.shiny && group.shiny() != null) {
-            return group.shiny(); // Shiny is checked after legendary/mythical
+            return group.shiny(); // Shiny is checked after legendary/mythical/ultrabeast
         }
 
         // Default to the normal message section if no special rarity matches
