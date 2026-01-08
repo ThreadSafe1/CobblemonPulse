@@ -34,6 +34,8 @@ public class PokemonContext {
     /** True if the Pokémon is mythical */
     public final boolean mythical;
 
+    public final boolean ultrabeast;
+
     /** The Pokémon's current level */
     public final int level;
 
@@ -55,19 +57,20 @@ public class PokemonContext {
     /**
      * Constructs a new PokemonContext instance with all relevant event data.
      *
-     * @param pokemon   The Pokémon's name
-     * @param player    The player's name
-     * @param world     The server world where the event occurs
-     * @param pos       The block position of the Pokémon
-     * @param shiny     True if the Pokémon is shiny
-     * @param legendary True if the Pokémon is legendary
-     * @param mythical  True if the Pokémon is mythical
-     * @param level     The Pokémon's level
-     * @param ability   The Pokémon's ability name
-     * @param form      The Pokémon's form
-     * @param gender    The Pokémon's gender
-     * @param nature    The Pokémon's nature
-     * @param type      The Pokémon's type(s)
+     * @param pokemon    The Pokémon's name
+     * @param player     The player's name
+     * @param world      The server world where the event occurs
+     * @param pos        The block position of the Pokémon
+     * @param shiny      True if the Pokémon is shiny
+     * @param legendary  True if the Pokémon is legendary
+     * @param mythical   True if the Pokémon is mythical
+     * @param ultrabeast True if the Pokémon is ultrabeast
+     * @param level      The Pokémon's level
+     * @param ability    The Pokémon's ability name
+     * @param form       The Pokémon's form
+     * @param gender     The Pokémon's gender
+     * @param nature     The Pokémon's nature
+     * @param type       The Pokémon's type(s)
      */
     public PokemonContext(
             String pokemon,
@@ -77,6 +80,7 @@ public class PokemonContext {
             boolean shiny,
             boolean legendary,
             boolean mythical,
+            boolean ultrabeast,
             int level,
             String ability,
             String form,
@@ -91,6 +95,7 @@ public class PokemonContext {
         this.shiny = shiny;
         this.legendary = legendary;
         this.mythical = mythical;
+        this.ultrabeast = ultrabeast;
         this.level = level;
         this.ability = ability;
         this.form = form;
