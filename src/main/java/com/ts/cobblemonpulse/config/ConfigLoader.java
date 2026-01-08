@@ -174,6 +174,18 @@ public class ConfigLoader {
                         1.0f,
                         true,
                         baseCommand
+                ),
+                // UltraBeast Pokémon
+                new Config.MessageSection(
+                        true,
+                        "&#AA00FF✦ UltraBeast! " + baseMessage,
+                        baseHover,
+                        true,
+                        "minecraft:entity.experience_orb.pickup",
+                        1.0f,
+                        1.0f,
+                        true,
+                        baseCommand
                 )
         );
     }
