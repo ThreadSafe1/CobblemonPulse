@@ -7,7 +7,7 @@
 ## Features
 
 - Broadcast messages when Pokémon spawn, are captured, or defeated.
-- Supports wild, shiny, legendary, and mythical Pokémon.
+- Supports wild, shiny, legendary, ultrabeast and mythical Pokémon.
 - Custom hover text showing Pokémon info (level, type, ability, form, nature, gender, world, biome, location).
 - Optional sound effects for events.
 - Custom commands triggered on events.
@@ -58,7 +58,8 @@ config/cobblemonpulse/config.json
     },
     "shiny": { ... },
     "legendary": { ... },
-    "mythical": { ... }
+    "mythical": { ... },
+    "ultrabeast": { ... }
   },
   "capture": { ... },
   "defeat": { ... }
@@ -77,7 +78,7 @@ Only users with the permission `cobblemonpulse.admin` can execute this command.
 
 ## Default Configuration
 
-The default configuration includes spawn, capture, and defeat settings for normal, shiny, legendary, and mythical Pokémon.
+The default configuration includes spawn, capture, and defeat settings for normal, shiny, legendary, ultrabeast and mythical Pokémon.
 
 (Full JSON configuration omitted for brevity. Refer to the default `cobblemonpulse.json` in the mod for complete details.)
 
